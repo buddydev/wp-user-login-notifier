@@ -10,15 +10,16 @@ class BuddyDev_Successful_Login_Email_Notifier extends BuddyDev_Login_Notifier {
 
 		$user_login = $user->user_login;
 		
-		if( $user->user_email == $email )
+		if ( $user->user_email == $email ) {
 			return ;// don't send admin two messages 
+		}
 		
 		$details = $this->get_extra() ;
 		extract( $details );
 		
 		$subject_append = '';
 		
-		if( $platform && $browser  ){
+		if ( $platform && $browser  ) {
 			
 			$subject_append = __( ' from %s on %s', 'wp-user-login-notifier' );
 			
@@ -53,8 +54,10 @@ User Agent: %8$s
 
 
 	$message = sprintf( $message, $site_name, $user_login, $ip, $browser, $platform, $referer, $time, $client );	
-
-	wp_mail( $email, $subject, $message );
+	
+	$bcc_headers= buddydev_wpuln_get_bcc_header();
+	
+	wp_mail( $email, $subject, $message, $bcc_headers );
 	
 	}
 	
@@ -68,7 +71,7 @@ User Agent: %8$s
 		
 		$subject_append = '';
 		
-		if( $platform && $browser  ){
+		if ( $platform && $browser  ) {
 			
 			$subject_append = __( ' from %s on %s', 'wp-user-login-notifier' );
 			
@@ -102,11 +105,9 @@ Thank you.
 ';
 	
 
-	
-
-
 	$message = sprintf( $message, $user->display_name,  $site_name, $user_login, $browser, $platform,  $ip,  $referer, $time, $client, get_option( 'url' ) );	
-
+	
 	wp_mail( $email, $subject, $message );	
+	
 	}
 }

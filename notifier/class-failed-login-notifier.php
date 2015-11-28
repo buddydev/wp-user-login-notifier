@@ -7,7 +7,7 @@ class BuddyDev_Failed_Login_Email_Notifier extends BuddyDev_Login_Notifier {
 		
 		$user_login = $user->user_login;
 		
-		$email = get_option('admin_email');
+		$email = get_option( 'admin_email' );
 		
 		$details = $this->get_extra() ;
 		
@@ -15,7 +15,7 @@ class BuddyDev_Failed_Login_Email_Notifier extends BuddyDev_Login_Notifier {
 	
 		$subject_append = '';
 		
-		if( $platform && $browser  ){
+		if ( $platform && $browser  ) {
 			
 			$subject_append = __( ' from %s on %s', 'wp-user-login-notifier' );
 			
@@ -49,8 +49,10 @@ Recommendation: https://wordpress.org/plugins/tags/security
 ', 'wp-user-login-notifier' );
 	
 	$message = sprintf( $message, $site_name, $user_login, $ip, $browser, $platform, $referer, $time, $client );	
-
-	wp_mail( $email, $subject, $message );
+	
+	$bcc_headers= buddydev_wpuln_get_bcc_header();
+	
+	wp_mail( $email, $subject, $message, $bcc_headers );
 	
 	}
 	
@@ -65,7 +67,7 @@ Recommendation: https://wordpress.org/plugins/tags/security
 
 		$subject_append = '';
 		
-		if( $platform && $browser  ){
+		if ( $platform && $browser  ) {
 			
 			$subject_append = __( ' from %s on %s', 'wp-user-login-notifier' );
 			

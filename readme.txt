@@ -3,11 +3,11 @@ Contributors: buddydev, sbrajesh
 Tags: login, user, failed login, notification
 Requires at least: 4.0
 Tested up to: 4.2.1
-Stable tag: 1.0.0
+Stable tag: 1.0.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-WordPress User Login Notifier plugin notifies site admin and users of the succeful and failed login attempts via email.
+WordPress User Login Notifier plugin notifies site admin and users of the successful and failed login attempts via email.
 
 == Description ==
 
@@ -57,6 +57,9 @@ Yes
 5. Configuration settings
 
 == Changelog ==
+
+= 1.0.1 =
+* Add admin option to allow extra emails to be notified.
 
 = 1.0.0 =
 * Initial release.

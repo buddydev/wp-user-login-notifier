@@ -85,6 +85,15 @@ class WP_User_Login_Notifier_Admin {
                     ),
                     
                 ),
+                array(
+                    'name'		=> 'notify_extra_users',
+                    'label'		=> __( 'Notify More Users?', 'wp-user-login-notifier' ),
+                    'desc'		=> __( 'Please add a comma separated list of email you want to be notified.', 'wp-user-login-notifier' ),
+                    'type'		=> 'textarea',
+                    'default'	=> '',
+                   
+                    
+                ),
                 
               
             

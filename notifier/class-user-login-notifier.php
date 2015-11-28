@@ -23,8 +23,9 @@ class BuddyDev_User_Login_Notifier {
 	 */
 	public static function get_instance() {
 		
-		if( ! isset( self::$instance ) )
+		if ( ! isset( self::$instance ) ) {
 			self::$instance = new self();
+		}
 		
 		return self::$instance;
 
@@ -33,11 +34,12 @@ class BuddyDev_User_Login_Notifier {
 
 	public function set_notifier( $type, $notifier ) {
 		
-		if( ! $type )
+		if( ! $type ) {
 			return ;
+		}
 		$type = sanitize_key( $type );
 		
-		$this->notifiers[$type] = $notifier;
+		$this->notifiers[ $type ] = $notifier;
 		return $this;
 	}
 	
@@ -48,8 +50,9 @@ class BuddyDev_User_Login_Notifier {
 	 */
 	public function get_notifier( $type ) {
 		
-		if( isset( $this->notifiers[$type] ) )
-			return $this->notifiers[$type];
+		if ( isset( $this->notifiers[ $type ] ) ) {
+			return $this->notifiers[ $type ];
+		}
 		
 		return null;
 		
@@ -72,13 +75,15 @@ class BuddyDev_User_Login_Notifier {
 	
 	public function notify_login( $user_login, $user ) {
 		
-		if( isset( $this->notifiers['success'] ) && is_a( $this->notifiers['success'], 'BuddyDev_Login_Notifier' ) ) {
+		if ( isset( $this->notifiers['success'] ) && is_a( $this->notifiers['success'], 'BuddyDev_Login_Notifier' ) ) {
 			
-			if( buddydev_wpuln_get_setting( 'notify_admin_on_success' ) == 'yes' )
+			if ( buddydev_wpuln_get_setting( 'notify_admin_on_success' ) == 'yes' ) {
 				$this->notifiers['success']->notify_admin( $user );
+			}
 			
-			if( buddydev_wpuln_get_setting( 'notify_user_on_success' ) == 'yes' )
+			if ( buddydev_wpuln_get_setting( 'notify_user_on_success' ) == 'yes' ) {
 				$this->notifiers['success']->notify_user( $user );
+			}
 		}
 		
 	}
@@ -87,19 +92,23 @@ class BuddyDev_User_Login_Notifier {
 		
 		$user = null;
 		
-		if( username_exists( $user_login ) )
+		if ( username_exists( $user_login ) ) {
 			$user = get_user_by ( 'login', $user_login );
+		}
 		
-		if( ! $user )
+		if ( ! $user ) {
 			return ;
+		}
 		
-		if( isset( $this->notifiers['fail'] ) && is_a( $this->notifiers['fail'], 'BuddyDev_Login_Notifier' ) ) {
+		if ( isset ( $this->notifiers['fail'] ) && is_a( $this->notifiers['fail'], 'BuddyDev_Login_Notifier' ) ) {
 			
-			if( buddydev_wpuln_get_setting( 'notify_admin_on_fail' ) == 'yes' )
+			if ( buddydev_wpuln_get_setting( 'notify_admin_on_fail' ) == 'yes' ) {
 				$this->notifiers['fail']->notify_admin( $user );
+			}
 			
-			if( buddydev_wpuln_get_setting( 'notify_user_on_fail' ) == 'yes' )
+			if ( buddydev_wpuln_get_setting( 'notify_user_on_fail' ) == 'yes' ) {
 				$this->notifiers['fail']->notify_user( $user );
+			}
 		}
 		
 	}

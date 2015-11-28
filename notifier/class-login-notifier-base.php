@@ -18,10 +18,11 @@ abstract class BuddyDev_Login_Notifier {
 		// Normaly, In a single request, these information will never change, so why rcalculate
 		static $extra;
 
-		if( isset( $extra ) )
+		if( isset( $extra ) ) {
 			return $extra;
+		}
 
-		if( ! class_exists( 'Browser' ) ) {
+		if ( ! class_exists( 'Browser' ) ) {
 			
 			require_once BUDDYDEV_WPULN_PLUGIN_DIR . 'lib/Browser.php';
 			
