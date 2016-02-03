@@ -40,7 +40,7 @@ function buddydev_wpuln_get_extra_emails() {
 	
 	$emails = buddydev_wpuln_get_setting( 'notify_extra_users' );
 	
-	if( ! empty( $emails ) ) {
+	if ( ! empty( $emails ) ) {
 		$emails = explode(',', $emails );
 		
 		//now trim it

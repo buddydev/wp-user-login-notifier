@@ -53,8 +53,9 @@ class BuddyDev_User_Login_Notification_Helper {
 	 */
 	public static function get_instance() {
 		
-		if( ! isset( self::$instance ) )
+		if ( ! isset( self::$instance ) ) {
 			self::$instance = new self();
+		}
 		
 		return self::$instance;
 	}
@@ -65,7 +66,7 @@ class BuddyDev_User_Login_Notification_Helper {
 		$files = array();
 		//load the notifiers if the user is not logged in
 		//why waste processing time and memory because if a user is logged in, we don't need the notifier
-		if( ! is_user_logged_in() ) {
+		if ( ! is_user_logged_in() ) {
 		
 			$files = array(
 				'functions.php',
@@ -75,13 +76,13 @@ class BuddyDev_User_Login_Notification_Helper {
 				'notifier/class-user-login-notifier.php',
 			);
 		
-		}elseif( is_admin() && is_user_logged_in() && !defined( 'DOING_AJAX' ) ) {
+		} elseif ( is_admin() && is_user_logged_in() && ! defined( 'DOING_AJAX' ) ) {
 			//if it is admin, let us load the admin settings code
 			$files = array('admin/admin.php');
 		}
 		
 		
-		foreach( $files as $file ) {
+		foreach ( $files as $file ) {
 			
 			require_once $this->path . $file;
 		}
@@ -93,7 +94,7 @@ class BuddyDev_User_Login_Notification_Helper {
 	 */
 	public static function on_activation() {
 		
-		if( ! get_option( 'wp_user_login_notifier_settings' ) ) {
+		if ( ! get_option( 'wp_user_login_notifier_settings' ) ) {
 			
 			$default = array(
 				'notify_admin_on_fail'		=> 'yes',

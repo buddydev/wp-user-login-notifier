@@ -2,8 +2,8 @@
 Contributors: buddydev, sbrajesh
 Tags: login, user, failed login, notification
 Requires at least: 4.0
-Tested up to: 4.2.1
-Stable tag: 1.0.1
+Tested up to: 4.4.1
+Stable tag: 1.0.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -57,6 +57,9 @@ Yes
 5. Configuration settings
 
 == Changelog ==
+
+= 1.0.2 =
+* Little cleanup and compatiblity with ajax login.
 
 = 1.0.1 =
 * Add admin option to allow extra emails to be notified.
