@@ -40,7 +40,7 @@ class BuddyDev_User_Login_Notification_Helper {
 		//also hook the loader on init action
 		//we are hooking to init as logged in user is initialized at this point
 		//if you are looking at the ode, you should use plugins_loaded instead of init unless you understand what you are doing
-		add_action( 'init', array( $this, 'load' ) );
+		add_action( 'init', array( $this, 'load' ), 0 );
 		
 		register_activation_hook( __FILE__, array( 'BuddyDev_User_Login_Notification_Helper', 'on_activation' ) );//self does not work
 		register_uninstall_hook( __FILE__, array( 'BuddyDev_User_Login_Notification_Helper', 'on_uninstall') );
