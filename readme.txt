@@ -58,6 +58,10 @@ Yes
 
 == Changelog ==
 
+= 1.0.3 =
+* Added partial translation support(for emails etc).
+* Code cleanup to follow WordPress Coding Standards.
+
 = 1.0.2 =
 * Little cleanup and compatibility with ajax login.
 
