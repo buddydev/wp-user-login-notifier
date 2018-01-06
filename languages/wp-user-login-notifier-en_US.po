@@ -1,0 +1,326 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: WordPress User Login Notifier\n"
+"POT-Creation-Date: 2018-01-07 00:37+0530\n"
+"PO-Revision-Date: 2018-01-07 00:37+0530\n"
+"Last-Translator: \n"
+"Language-Team: BuddyDev\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.7.1\n"
+"X-Poedit-Basepath: ..\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-KeywordsList: __;_e;_ex:1,2c;_x:1,2c\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: admin/admin.php:32 admin/admin.php:110
+msgid "WP User Login Notifier"
+msgstr ""
+
+#: admin/admin.php:39
+msgid "Mail admin on login Failure?"
+msgstr ""
+
+#: admin/admin.php:40
+msgid ""
+"Admin will get notification when a user tries to login with wrong password."
+msgstr ""
+
+#: admin/admin.php:44 admin/admin.php:57 admin/admin.php:70 admin/admin.php:83
+msgid "Yes"
+msgstr ""
+
+#: admin/admin.php:45 admin/admin.php:58 admin/admin.php:71 admin/admin.php:84
+msgid "No"
+msgstr ""
+
+#: admin/admin.php:52
+msgid "Notify User on Login failure?"
+msgstr ""
+
+#: admin/admin.php:53
+msgid ""
+"If you enable, The User will get notification when te login attempt from "
+"their account fails."
+msgstr ""
+
+#: admin/admin.php:65
+msgid "Notify admin on successful login?"
+msgstr ""
+
+#: admin/admin.php:66
+msgid ""
+"Admin will get notification when a user logs in to the site successfully."
+msgstr ""
+
+#: admin/admin.php:78
+msgid "Notify User on successful login?"
+msgstr ""
+
+#: admin/admin.php:79
+msgid ""
+"If you enable, The User will get notification when they login successfully "
+"to the site."
+msgstr ""
+
+#: admin/admin.php:90
+msgid "Notify More Users?"
+msgstr ""
+
+#: admin/admin.php:91
+msgid "Please add a comma separated list of email you want to be notified."
+msgstr ""
+
+#: admin/admin.php:110
+msgid "WP User Login Notifer"
+msgstr ""
+
+#: admin/options-buddy/fields/image.php:39
+msgid "Remove"
+msgstr ""
+
+#: admin/options-buddy/options-buddy-example.php:55
+msgid "Basic Settings"
+msgstr ""
+
+#: admin/options-buddy/options-buddy-example.php:55
+msgid "This is description for basic section"
+msgstr ""
+
+#: admin/options-buddy/options-buddy-example.php:61
+msgid "Advanced Settings"
+msgstr ""
+
+#: admin/options-buddy/options-buddy-example.php:61
+msgid "This is an optional description of advanced section"
+msgstr ""
+
+#: admin/options-buddy/options-buddy-example.php:63
+msgid "Other Settings"
+msgstr ""
+
+#: admin/options-buddy/options-buddy-example.php:90
+#: admin/options-buddy/options-buddy-example.php:210
+msgid "Text Input"
+msgstr ""
+
+#: admin/options-buddy/options-buddy-example.php:91
+#: admin/options-buddy/options-buddy-example.php:211
+msgid "Text input description"
+msgstr ""
+
+#: admin/options-buddy/options-buddy-example.php:98
+#: admin/options-buddy/options-buddy-example.php:217
+msgid "Textarea Input"
+msgstr ""
+
+#: admin/options-buddy/options-buddy-example.php:99
+#: admin/options-buddy/options-buddy-example.php:218
+msgid "Textarea description"
+msgstr ""
+
+#: admin/options-buddy/options-buddy-example.php:104
+#: admin/options-buddy/options-buddy-example.php:223
+msgid "Checkbox"
+msgstr ""
+
+#: admin/options-buddy/options-buddy-example.php:105
+#: admin/options-buddy/options-buddy-example.php:224
+msgid "Checkbox Label"
+msgstr ""
+
+#: admin/options-buddy/options-buddy-example.php:110
+#: admin/options-buddy/options-buddy-example.php:229
+msgid "Radio Button"
+msgstr ""
+
+#: admin/options-buddy/options-buddy-example.php:111
+#: admin/options-buddy/options-buddy-example.php:230
+msgid "A radio button"
+msgstr ""
+
+#: admin/options-buddy/options-buddy-example.php:120
+#: admin/options-buddy/options-buddy-example.php:239
+msgid "Multile checkbox"
+msgstr ""
+
+#: admin/options-buddy/options-buddy-example.php:121
+#: admin/options-buddy/options-buddy-example.php:240
+msgid "Multi checkbox description"
+msgstr ""
+
+#: admin/options-buddy/options-buddy-example.php:132
+#: admin/options-buddy/options-buddy-example.php:251
+msgid "A Dropdown"
+msgstr ""
+
+#: admin/options-buddy/options-buddy-example.php:133
+#: admin/options-buddy/options-buddy-example.php:252
+msgid "Dropdown description"
+msgstr ""
+
+#: admin/options-buddy/options-buddy-example.php:143
+#: admin/options-buddy/options-buddy-example.php:261
+msgid "Password"
+msgstr ""
+
+#: admin/options-buddy/options-buddy-example.php:144
+#: admin/options-buddy/options-buddy-example.php:262
+msgid "Password description"
+msgstr ""
+
+#: admin/options-buddy/options-buddy-example.php:150
+msgid "Logo"
+msgstr ""
+
+#: admin/options-buddy/options-buddy-example.php:151
+msgid "Choose a logo"
+msgstr ""
+
+#: admin/options-buddy/options-buddy-example.php:157
+msgid "Background"
+msgstr ""
+
+#: admin/options-buddy/options-buddy-example.php:158
+msgid "Upload a sweet background"
+msgstr ""
+
+#: admin/options-buddy/options-buddy-example.php:169
+msgid "What is your Name"
+msgstr ""
+
+#: admin/options-buddy/options-buddy-example.php:170
+msgid "ooh, let us make you famous!"
+msgstr ""
+
+#: admin/options-buddy/options-buddy-example.php:176
+msgid "what do you do for living?"
+msgstr ""
+
+#: admin/options-buddy/options-buddy-example.php:177
+msgid "Ok, share it now, don't hesitate boy!"
+msgstr ""
+
+#: admin/options-buddy/options-buddy-example.php:182
+msgid "What describes you Best?"
+msgstr ""
+
+#: admin/options-buddy/options-buddy-example.php:183
+msgid "yup!, we will keep it secret!"
+msgstr ""
+
+#: admin/options-buddy/options-buddy-example.php:187
+msgid "I am mad"
+msgstr ""
+
+#: admin/options-buddy/options-buddy-example.php:188
+msgid "I am Crazy too"
+msgstr ""
+
+#: admin/options-buddy/options-buddy-example.php:189
+msgid "I am a mortal, boohooo!"
+msgstr ""
+
+#: admin/options-buddy/options-buddy-example.php:194
+msgid "Which one suits you?"
+msgstr ""
+
+#: admin/options-buddy/options-buddy-example.php:195
+msgid "say again!"
+msgstr ""
+
+#: admin/options-buddy/options-buddy-example.php:199
+msgid "I want Cheese"
+msgstr ""
+
+#: admin/options-buddy/options-buddy-example.php:200
+msgid "I want Cake"
+msgstr ""
+
+#: admin/options-buddy/options-buddy-example.php:268
+msgid "File"
+msgstr ""
+
+#: admin/options-buddy/options-buddy-example.php:269
+msgid "File description"
+msgstr ""
+
+#: notifier/class-failed-login-notifier.php:30
+#: notifier/class-failed-login-notifier.php:87
+#: notifier/class-successful-login-notifier.php:33
+#: notifier/class-successful-login-notifier.php:88
+#, php-format
+msgid " from %s on %s"
+msgstr ""
+
+#: notifier/class-failed-login-notifier.php:34
+#, php-format
+msgid "Login failed for user {%s}"
+msgstr ""
+
+#: notifier/class-failed-login-notifier.php:41
+#, php-format
+msgid ""
+"Hi,\n"
+"There was a failed login attempt on your site %1$s.\n"
+"\n"
+"Details:\n"
+"\n"
+"User: %2$s\n"
+"IP: %3$s\n"
+"Browser: %4$s\n"
+"Platform: %5$s\n"
+"Referer: %6$s,\n"
+"Time: %7$s\n"
+"User Agent: %8$s\n"
+"\n"
+"No need to worry or panic if this is just the first email. \n"
+"If you are getting it repeatedly, Please make sure that your user accounts "
+"are secured properly.\n"
+"\n"
+"You may want to install some WordPress security plugin to tighten the "
+"security.\n"
+"Recommendation: https://wordpress.org/plugins/tags/security\n"
+msgstr ""
+
+#: notifier/class-failed-login-notifier.php:92
+#, php-format
+msgid "Login failed for your account {%s}"
+msgstr ""
+
+#: notifier/class-failed-login-notifier.php:100
+#, php-format
+msgid ""
+"An attempt to login from your account [%1$s] on site %2$s failed.\n"
+"\t\t\t\n"
+"Access Details:-\n"
+"\n"
+"IP: %3$s\n"
+"Browser: %4$s\n"
+"Platform: %5$s\n"
+"Referer %6$s\n"
+"Time: %7$s\n"
+"User Agent: %8$s\n"
+"Please make sure that you are using a secure password. if not, you should "
+"change it right now and inform the site administrator.\n"
+"\n"
+"%2$s Team\n"
+"%9$s\n"
+"\n"
+msgstr ""
+
+#: notifier/class-login-notifier-base.php:81
+msgid "Your Blog"
+msgstr ""
+
+#: notifier/class-successful-login-notifier.php:38
+#, php-format
+msgid "New sign-in notification for {%s}"
+msgstr ""
+
+#: notifier/class-successful-login-notifier.php:93
+#, php-format
+msgid "New sign-in from your account {%s}"
+msgstr ""

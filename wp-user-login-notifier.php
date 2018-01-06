@@ -46,6 +46,7 @@ class BuddyDev_User_Login_Notification_Helper {
 		// we are hooking to init as logged in user is initialized at this point
 		// if you are looking at the ode, you should use plugins_loaded instead of init unless you understand what you are doing.
 		add_action( 'init', array( $this, 'load' ), 0 );
+		add_action( 'init', array( $this, 'load_textdomain' ), 1 );
 
 		register_activation_hook( __FILE__, array(
 			'BuddyDev_User_Login_Notification_Helper',
@@ -96,6 +97,13 @@ class BuddyDev_User_Login_Notification_Helper {
 			require_once $this->path . $file;
 		}
 
+	}
+
+	/**
+	 * Load translations.
+	 */
+	public function load_textdomain() {
+		load_plugin_textdomain( 'wp-user-login-notifier', false, dirname( plugin_basename( __FILE__ ) ) . '/languages' );
 	}
 
 	/**
