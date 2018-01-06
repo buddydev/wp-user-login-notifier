@@ -1,40 +1,49 @@
 <?php
-//notify successful login by email
+if ( ! defined( 'ABSPATH' ) ) {
+	exit( 0 );
+}
+
+/**
+ * Successfull login email notifier.
+ */
 class BuddyDev_Successful_Login_Email_Notifier extends BuddyDev_Login_Notifier {
-	
-	
+
+	/**
+	 * Notify admin.
+	 *
+	 * @param WP_User $user user object.
+	 */
 	public function notify_admin( $user ) {
-		
-		
-		$email = get_option('admin_email');
+
+		$email = get_option( 'admin_email' );
 
 		$user_login = $user->user_login;
-		
+
 		if ( $user->user_email == $email ) {
-			return ;// don't send admin two messages 
+			return;// don't send admin two messages.
 		}
-		
-		$details = $this->get_extra() ;
+
+		$details = $this->get_extra();
 		extract( $details );
-		
+
 		$subject_append = '';
-		
-		if ( $platform && $browser  ) {
-			
+
+		if ( $platform && $browser ) {
+
 			$subject_append = __( ' from %s on %s', 'wp-user-login-notifier' );
-			
+
 			$subject_append = sprintf( $subject_append, $browser, $platform );
 		}
-		
-		$subject = __( 'New sign-in notification for {%s}', 'wp-user-login-notifier');
-		
+
+		$subject = __( 'New sign-in notification for {%s}', 'wp-user-login-notifier' );
+
 		$subject = sprintf( $subject, $user_login );
-			
-		$subject = $subject . $subject_append; 
-			
+
+		$subject = $subject . $subject_append;
+
 		$subject = $this->get_email_subject( array( 'text' => $subject ) );
-		
-		//should we rellay say congratulations, it's debatable and listen folks, I neeed help to decide here.
+
+		// should we rellay say congratulations, it's debatable and listen folks, I need help to decide here.
 		$message = 'Hi,
 Congratulations, A user just logged into your site %1$s.
 
@@ -49,43 +58,46 @@ Time: %7$s
 User Agent: %8$s
 
 ';
-	
 
 
+		$message = sprintf( $message, $site_name, $user_login, $ip, $browser, $platform, $referer, $time, $client );
 
-	$message = sprintf( $message, $site_name, $user_login, $ip, $browser, $platform, $referer, $time, $client );	
-	
-	$bcc_headers= buddydev_wpuln_get_bcc_header();
-	
-	wp_mail( $email, $subject, $message, $bcc_headers );
-	
+		$bcc_headers = buddydev_wpuln_get_bcc_header();
+
+		wp_mail( $email, $subject, $message, $bcc_headers );
+
 	}
-	
-	public function notify_user ( $user ) {
+
+	/**
+	 * Notify user.
+	 *
+	 * @param WP_User $user user object.
+	 */
+	public function notify_user( $user ) {
 
 		$user_login = $user->user_login;
-		$email = $user->user_email;
-		
-		$details = $this->get_extra() ;
+		$email      = $user->user_email;
+
+		$details = $this->get_extra();
 		extract( $details );
-		
+
 		$subject_append = '';
-		
-		if ( $platform && $browser  ) {
-			
+
+		if ( $platform && $browser ) {
+
 			$subject_append = __( ' from %s on %s', 'wp-user-login-notifier' );
-			
+
 			$subject_append = sprintf( $subject_append, $browser, $platform );
 		}
-		
-		$subject = __( 'New sign-in from your account {%s}', 'wp-user-login-notifier');
-		
+
+		$subject = __( 'New sign-in from your account {%s}', 'wp-user-login-notifier' );
+
 		$subject = sprintf( $subject, $user_login );
-	
+
 		$subject = $subject . $subject_append;
-		
+
 		$subject = $this->get_email_subject( array( 'text' => $subject ) );
-		
+
 		$message = 'Hi %1$s,
 Your %2$s account %3$s was just used to sign in from %4$s on %5$s.
 
@@ -103,11 +115,11 @@ Thank you.
 %2$s Team
 %10$s
 ';
-	
 
-	$message = sprintf( $message, $user->display_name,  $site_name, $user_login, $browser, $platform,  $ip,  $referer, $time, $client, get_option( 'url' ) );	
-	
-	wp_mail( $email, $subject, $message );	
-	
+
+		$message = sprintf( $message, $user->display_name, $site_name, $user_login, $browser, $platform, $ip, $referer, $time, $client, get_option( 'url' ) );
+
+		wp_mail( $email, $subject, $message );
+
 	}
 }

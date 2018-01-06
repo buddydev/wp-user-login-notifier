@@ -1,34 +1,44 @@
 <?php
-//failed login, notify by email
+if ( ! defined( 'ABSPATH' ) ) {
+	exit( 0 );
+}
+
+/**
+ * Failed login email notifier.
+ */
 class BuddyDev_Failed_Login_Email_Notifier extends BuddyDev_Login_Notifier {
-	
-	
+
+	/**
+	 * Notify admin about the user login failure.
+	 *
+	 * @param WP_User $user user object.
+	 */
 	public function notify_admin( $user ) {
-		
+
 		$user_login = $user->user_login;
-		
+
 		$email = get_option( 'admin_email' );
-		
-		$details = $this->get_extra() ;
-		
+
+		$details = $this->get_extra();
+
 		extract( $details );
-	
+
 		$subject_append = '';
-		
-		if ( $platform && $browser  ) {
-			
+
+		if ( $platform && $browser ) {
+
 			$subject_append = __( ' from %s on %s', 'wp-user-login-notifier' );
-			
+
 			$subject_append = sprintf( $subject_append, $browser, $platform );
 		}
-		$subject = __( 'Login failed for user {%s}', 'wp-user-login-notifier');
-		
+		$subject = __( 'Login failed for user {%s}', 'wp-user-login-notifier' );
+
 		$subject = sprintf( $subject, $user_login );
-		$subject = $subject . $subject_append; 
-		
+		$subject = $subject . $subject_append;
+
 		$subject = $this->get_email_subject( array( 'text' => $subject ) );
-	
-		$message = __('Hi,
+
+		$message = __( 'Hi,
 There was a failed login attempt on your site %1$s.
 
 Details:
@@ -47,42 +57,47 @@ If you are getting it repeatedly, Please make sure that your user accounts are s
 You may want to install some WordPress security plugin to tighten the security.
 Recommendation: https://wordpress.org/plugins/tags/security
 ', 'wp-user-login-notifier' );
-	
-	$message = sprintf( $message, $site_name, $user_login, $ip, $browser, $platform, $referer, $time, $client );	
-	
-	$bcc_headers= buddydev_wpuln_get_bcc_header();
-	
-	wp_mail( $email, $subject, $message, $bcc_headers );
-	
+
+		$message = sprintf( $message, $site_name, $user_login, $ip, $browser, $platform, $referer, $time, $client );
+
+		$bcc_headers = buddydev_wpuln_get_bcc_header();
+
+		wp_mail( $email, $subject, $message, $bcc_headers );
+
 	}
-	
-	public function notify_user ( $user ) {
-	
+
+	/**
+	 * Notify user of failed login.
+	 *
+	 * @param WP_User $user user object.
+	 */
+	public function notify_user( $user ) {
+
 		$email = $user->user_email;
-		
+
 		$user_login = $user->user_login;
-		
-		$details = $this->get_extra() ;
+
+		$details = $this->get_extra();
 		extract( $details );
 
 		$subject_append = '';
-		
-		if ( $platform && $browser  ) {
-			
+
+		if ( $platform && $browser ) {
+
 			$subject_append = __( ' from %s on %s', 'wp-user-login-notifier' );
-			
+
 			$subject_append = sprintf( $subject_append, $browser, $platform );
 		}
-		
-		$subject = __( 'Login failed for your account {%s}', 'wp-user-login-notifier');
-		
+
+		$subject = __( 'Login failed for your account {%s}', 'wp-user-login-notifier' );
+
 		$subject = sprintf( $subject, $user_login );
-		
-		$subject = $subject . $subject_append; 
-		
+
+		$subject = $subject . $subject_append;
+
 		$subject = $this->get_email_subject( array( 'text' => $subject ) );
-		
-		$message = __( 'An attemp to login from your account [%1$s] on site %2$s failed.
+
+		$message = __( 'An attempt to login from your account [%1$s] on site %2$s failed.
 			
 Access Details:-
 
@@ -97,12 +112,11 @@ Please make sure that you are using a secure password. if not, you should change
 %2$s Team
 %9$s
 
-', 'wp-user-login-notifier');
-	
+', 'wp-user-login-notifier' );
 
 
-	$message = sprintf( $message, $user_login, $site_name,  $ip, $browser, $platform,  $referer, $time, $client, get_option( 'url') );	
+		$message = sprintf( $message, $user_login, $site_name, $ip, $browser, $platform, $referer, $time, $client, get_option( 'url' ) );
 
-	wp_mail( $email, $subject, $message );	
+		wp_mail( $email, $subject, $message );
 	}
 }

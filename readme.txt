@@ -1,9 +1,9 @@
-=== WP User Login Notifier ===
+=== WordPress User Login Notifier ===
 Contributors: buddydev, sbrajesh
-Tags: login, user, failed login, notification
+Tags: login, user, failed login, admin notification, login notification, email login notification
 Requires at least: 4.0
-Tested up to: 4.4.1
-Stable tag: 1.0.2
+Tested up to: 4.9.1
+Stable tag: 1.0.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -16,14 +16,14 @@ WordPress User Login notifier plugin notifies site admin and the users on a Word
 === Features ===
 
 *   Notify site admin of a user login
-*	Notify the user of their succesful login to a site
+*	Notify the user of their successful login to a site
 *	Notify Site admin when a user login attempt is failed
 *	Notify User when his/her account login is failed
 *   Admin can setup if the user gets notified or not from the settings page
 
 The purpose of this plugin is to keep track of all the successful and failed login attempts on a WordPress Site.
 
-Please visit [BuddyDev](http://buddydev.com/wordpress/introducing-wordpress-user-login-notification-plugin/ "Plugin release post") for more details
+Please visit [BuddyDev](https://buddydev.com/wordpress/introducing-wordpress-user-login-notification-plugin/ "Plugin release post") for more details
 
 == Installation ==
 1. Login to dashboard & click Add New Plugin
@@ -59,7 +59,7 @@ Yes
 == Changelog ==
 
 = 1.0.2 =
-* Little cleanup and compatiblity with ajax login.
+* Little cleanup and compatibility with ajax login.
 
 = 1.0.1 =
 * Add admin option to allow extra emails to be notified.
