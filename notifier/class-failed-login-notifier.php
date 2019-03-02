@@ -131,7 +131,7 @@ Please make sure that you are using a secure password. if not, you should change
 
 		$message = sprintf( $message, $user_login, $site_name, $ip, $browser, $platform, $referer, $time, $client, get_option( 'url' ) );
 		$message = apply_filters( 'wpuln_failed_login_user_email_message', $message, $user, $details );
-		$headers = apply_filters( 'wpuln_failed_login_user_email_headers', array() );
+		$headers = apply_filters( 'wpuln_failed_login_user_email_headers', array(), $user, $details );
 		wp_mail( $email, $subject, $message, $headers );
 	}
 }

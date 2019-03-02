@@ -15,15 +15,15 @@ class BuddyDev_Successful_Login_Email_Notifier extends BuddyDev_Login_Notifier {
 	 */
 	public function notify_admin( $user ) {
 
-		$email = get_option( 'admin_email' );
+		$details = $this->get_extra();
+
+		$email = apply_filters( 'wpuln_successful_login_notifiable_admin_email', get_option( 'admin_email' ), $user, $details );
 
 		$user_login = $user->user_login;
 
-		if ( $user->user_email == $email ) {
+		if ( ! is_array( $email ) && $user->user_email === $email ) {
 			return;// don't send admin two messages.
 		}
-
-		$details  = $this->get_extra();
 
 		$platform  = $details['platform'];
 		$browser   = $details['browser'];
@@ -48,7 +48,7 @@ class BuddyDev_Successful_Login_Email_Notifier extends BuddyDev_Login_Notifier {
 
 		$subject = $subject . $subject_append;
 
-		$subject = $this->get_email_subject( array( 'text' => $subject ) );
+		$subject = apply_filters( 'wpuln_successful_login_admin_email_subject', $this->get_email_subject( array( 'text' => $subject ) ), $user, $details );
 
 		// should we really say congratulations, it's debatable. I need help to decide here.
 		$message = 'Hi,
@@ -67,8 +67,9 @@ User Agent: %8$s
 ';
 
 		$message = sprintf( $message, $site_name, $user_login, $ip, $browser, $platform, $referer, $time, $client );
+		$message = apply_filters( 'wpuln_successful_login_admin_email_message', $message, $user, $details );
 
-		$bcc_headers = buddydev_wpuln_get_bcc_header();
+		$bcc_headers = apply_filters( 'wpuln_successful_login_admin_email_headers', buddydev_wpuln_get_bcc_header(), $user, $details );
 
 		wp_mail( $email, $subject, $message, $bcc_headers );
 
@@ -80,11 +81,10 @@ User Agent: %8$s
 	 * @param WP_User $user user object.
 	 */
 	public function notify_user( $user ) {
+		$details = $this->get_extra();
 
 		$user_login = $user->user_login;
-		$email      = $user->user_email;
-
-		$details = $this->get_extra();
+		$email      = apply_filters( 'wpuln_successful_login_notifiable_user_email', $user->user_email, $user, $details );
 
 		$platform  = $details['platform'];
 		$browser   = $details['browser'];
@@ -110,7 +110,7 @@ User Agent: %8$s
 		$subject = $subject . $subject_append;
 
 		$subject = $this->get_email_subject( array( 'text' => $subject ) );
-
+		$subject = apply_filters( 'wpuln_successful_login_user_email_subject', $subject, $user, $details );
 		$message = 'Hi %1$s,
 Your %2$s account %3$s was just used to sign in from %4$s on %5$s.
 
@@ -130,8 +130,10 @@ Thank you.
 ';
 
 		$message = sprintf( $message, $user->display_name, $site_name, $user_login, $browser, $platform, $ip, $referer, $time, $client, get_option( 'url' ) );
+		$message = apply_filters( 'wpuln_successful_login_user_email_message', $message, $user, $details );
 
-		wp_mail( $email, $subject, $message );
+		$headers = apply_filters( 'wpuln_successful_login_user_email_headers', array(), $user, $details );
+		wp_mail( $email, $subject, $message, $headers );
 
 	}
 }
