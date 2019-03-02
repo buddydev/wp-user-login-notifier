@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: WordPress User Login Notifier\n"
-"POT-Creation-Date: 2018-01-07 00:37+0530\n"
-"PO-Revision-Date: 2018-01-07 00:37+0530\n"
+"POT-Creation-Date: 2019-03-03 02:26+0530\n"
+"PO-Revision-Date: 2019-03-03 02:26+0530\n"
 "Last-Translator: \n"
 "Language-Team: BuddyDev\n"
 "Language: en\n"
@@ -81,186 +81,18 @@ msgstr ""
 msgid "Remove"
 msgstr ""
 
-#: admin/options-buddy/options-buddy-example.php:55
-msgid "Basic Settings"
-msgstr ""
-
-#: admin/options-buddy/options-buddy-example.php:55
-msgid "This is description for basic section"
-msgstr ""
-
-#: admin/options-buddy/options-buddy-example.php:61
-msgid "Advanced Settings"
-msgstr ""
-
-#: admin/options-buddy/options-buddy-example.php:61
-msgid "This is an optional description of advanced section"
-msgstr ""
-
-#: admin/options-buddy/options-buddy-example.php:63
-msgid "Other Settings"
-msgstr ""
-
-#: admin/options-buddy/options-buddy-example.php:90
-#: admin/options-buddy/options-buddy-example.php:210
-msgid "Text Input"
-msgstr ""
-
-#: admin/options-buddy/options-buddy-example.php:91
-#: admin/options-buddy/options-buddy-example.php:211
-msgid "Text input description"
-msgstr ""
-
-#: admin/options-buddy/options-buddy-example.php:98
-#: admin/options-buddy/options-buddy-example.php:217
-msgid "Textarea Input"
-msgstr ""
-
-#: admin/options-buddy/options-buddy-example.php:99
-#: admin/options-buddy/options-buddy-example.php:218
-msgid "Textarea description"
-msgstr ""
-
-#: admin/options-buddy/options-buddy-example.php:104
-#: admin/options-buddy/options-buddy-example.php:223
-msgid "Checkbox"
-msgstr ""
-
-#: admin/options-buddy/options-buddy-example.php:105
-#: admin/options-buddy/options-buddy-example.php:224
-msgid "Checkbox Label"
-msgstr ""
-
-#: admin/options-buddy/options-buddy-example.php:110
-#: admin/options-buddy/options-buddy-example.php:229
-msgid "Radio Button"
-msgstr ""
-
-#: admin/options-buddy/options-buddy-example.php:111
-#: admin/options-buddy/options-buddy-example.php:230
-msgid "A radio button"
-msgstr ""
-
-#: admin/options-buddy/options-buddy-example.php:120
-#: admin/options-buddy/options-buddy-example.php:239
-msgid "Multile checkbox"
-msgstr ""
-
-#: admin/options-buddy/options-buddy-example.php:121
-#: admin/options-buddy/options-buddy-example.php:240
-msgid "Multi checkbox description"
-msgstr ""
-
-#: admin/options-buddy/options-buddy-example.php:132
-#: admin/options-buddy/options-buddy-example.php:251
-msgid "A Dropdown"
-msgstr ""
-
-#: admin/options-buddy/options-buddy-example.php:133
-#: admin/options-buddy/options-buddy-example.php:252
-msgid "Dropdown description"
-msgstr ""
-
-#: admin/options-buddy/options-buddy-example.php:143
-#: admin/options-buddy/options-buddy-example.php:261
-msgid "Password"
-msgstr ""
-
-#: admin/options-buddy/options-buddy-example.php:144
-#: admin/options-buddy/options-buddy-example.php:262
-msgid "Password description"
-msgstr ""
-
-#: admin/options-buddy/options-buddy-example.php:150
-msgid "Logo"
-msgstr ""
-
-#: admin/options-buddy/options-buddy-example.php:151
-msgid "Choose a logo"
-msgstr ""
-
-#: admin/options-buddy/options-buddy-example.php:157
-msgid "Background"
-msgstr ""
-
-#: admin/options-buddy/options-buddy-example.php:158
-msgid "Upload a sweet background"
-msgstr ""
-
-#: admin/options-buddy/options-buddy-example.php:169
-msgid "What is your Name"
-msgstr ""
-
-#: admin/options-buddy/options-buddy-example.php:170
-msgid "ooh, let us make you famous!"
-msgstr ""
-
-#: admin/options-buddy/options-buddy-example.php:176
-msgid "what do you do for living?"
-msgstr ""
-
-#: admin/options-buddy/options-buddy-example.php:177
-msgid "Ok, share it now, don't hesitate boy!"
-msgstr ""
-
-#: admin/options-buddy/options-buddy-example.php:182
-msgid "What describes you Best?"
-msgstr ""
-
-#: admin/options-buddy/options-buddy-example.php:183
-msgid "yup!, we will keep it secret!"
-msgstr ""
-
-#: admin/options-buddy/options-buddy-example.php:187
-msgid "I am mad"
-msgstr ""
-
-#: admin/options-buddy/options-buddy-example.php:188
-msgid "I am Crazy too"
-msgstr ""
-
-#: admin/options-buddy/options-buddy-example.php:189
-msgid "I am a mortal, boohooo!"
-msgstr ""
-
-#: admin/options-buddy/options-buddy-example.php:194
-msgid "Which one suits you?"
-msgstr ""
-
-#: admin/options-buddy/options-buddy-example.php:195
-msgid "say again!"
-msgstr ""
-
-#: admin/options-buddy/options-buddy-example.php:199
-msgid "I want Cheese"
-msgstr ""
-
-#: admin/options-buddy/options-buddy-example.php:200
-msgid "I want Cake"
-msgstr ""
-
-#: admin/options-buddy/options-buddy-example.php:268
-msgid "File"
-msgstr ""
-
-#: admin/options-buddy/options-buddy-example.php:269
-msgid "File description"
-msgstr ""
-
-#: notifier/class-failed-login-notifier.php:30
-#: notifier/class-failed-login-notifier.php:87
-#: notifier/class-successful-login-notifier.php:33
-#: notifier/class-successful-login-notifier.php:88
+#: notifier/class-failed-login-notifier.php:36
+#: notifier/class-successful-login-notifier.php:40
 #, php-format
 msgid " from %s on %s"
 msgstr ""
 
-#: notifier/class-failed-login-notifier.php:34
+#: notifier/class-failed-login-notifier.php:40
 #, php-format
 msgid "Login failed for user {%s}"
 msgstr ""
 
-#: notifier/class-failed-login-notifier.php:41
+#: notifier/class-failed-login-notifier.php:47
 #, php-format
 msgid ""
 "Hi,\n"
@@ -285,12 +117,18 @@ msgid ""
 "Recommendation: https://wordpress.org/plugins/tags/security\n"
 msgstr ""
 
-#: notifier/class-failed-login-notifier.php:92
+#: notifier/class-failed-login-notifier.php:101
+#: notifier/class-successful-login-notifier.php:101
+#, php-format
+msgid " from %1$s on %2$s"
+msgstr ""
+
+#: notifier/class-failed-login-notifier.php:106
 #, php-format
 msgid "Login failed for your account {%s}"
 msgstr ""
 
-#: notifier/class-failed-login-notifier.php:100
+#: notifier/class-failed-login-notifier.php:114
 #, php-format
 msgid ""
 "An attempt to login from your account [%1$s] on site %2$s failed.\n"
@@ -311,16 +149,16 @@ msgid ""
 "\n"
 msgstr ""
 
-#: notifier/class-login-notifier-base.php:81
+#: notifier/class-login-notifier-base.php:83
 msgid "Your Blog"
 msgstr ""
 
-#: notifier/class-successful-login-notifier.php:38
+#: notifier/class-successful-login-notifier.php:45
 #, php-format
 msgid "New sign-in notification for {%s}"
 msgstr ""
 
-#: notifier/class-successful-login-notifier.php:93
+#: notifier/class-successful-login-notifier.php:106
 #, php-format
 msgid "New sign-in from your account {%s}"
 msgstr ""
