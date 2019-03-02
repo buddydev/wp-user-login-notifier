@@ -17,9 +17,9 @@ class BuddyDev_Failed_Login_Email_Notifier extends BuddyDev_Login_Notifier {
 
 		$user_login = $user->user_login;
 
-		$email = get_option( 'admin_email' );
-
 		$details = $this->get_extra();
+
+		$email = apply_filters( 'wpuln_failed_login_notifiable_admin_email', get_option( 'admin_email' ), $user, $details );
 
 		$platform  = $details['platform'];
 		$browser   = $details['browser'];
@@ -42,7 +42,7 @@ class BuddyDev_Failed_Login_Email_Notifier extends BuddyDev_Login_Notifier {
 		$subject = sprintf( $subject, $user_login );
 		$subject = $subject . $subject_append;
 
-		$subject = $this->get_email_subject( array( 'text' => $subject ) );
+		$subject = apply_filters( 'wpuln_failed_login_admin_email_subject', $this->get_email_subject( array( 'text' => $subject ) ), $user, $details );
 
 		$message = __( 'Hi,
 There was a failed login attempt on your site %1$s.
@@ -66,7 +66,8 @@ Recommendation: https://wordpress.org/plugins/tags/security
 
 		$message = sprintf( $message, $site_name, $user_login, $ip, $browser, $platform, $referer, $time, $client );
 
-		$bcc_headers = buddydev_wpuln_get_bcc_header();
+		$message     = apply_filters( 'wpuln_failed_login_admin_email_message', $message, $user, $details );
+		$bcc_headers = apply_filters( 'wpuln_failed_login_admin_email_headers', buddydev_wpuln_get_bcc_header(), $user, $details );
 
 		wp_mail( $email, $subject, $message, $bcc_headers );
 
@@ -78,12 +79,12 @@ Recommendation: https://wordpress.org/plugins/tags/security
 	 * @param WP_User $user user object.
 	 */
 	public function notify_user( $user ) {
-
-		$email = $user->user_email;
+		$details = $this->get_extra();
 
 		$user_login = $user->user_login;
 
-		$details = $this->get_extra();
+		$email = apply_filters( 'wpuln_failed_login_notifiable_user_email', $user->user_email, $user, $details );
+
 
 		$platform  = $details['platform'];
 		$browser   = $details['browser'];
@@ -108,7 +109,7 @@ Recommendation: https://wordpress.org/plugins/tags/security
 
 		$subject = $subject . $subject_append;
 
-		$subject = $this->get_email_subject( array( 'text' => $subject ) );
+		$subject = apply_filters( 'wpuln_failed_login_user_email_subject', $this->get_email_subject( array( 'text' => $subject ) ), $user, $details );
 		/* translators: 1: user name, 2: site name, 3: IP, 4: Browser, 5: OS, 6: Referer, 7: Time, 8: User agent, 9: site url */
 		$message = __( 'An attempt to login from your account [%1$s] on site %2$s failed.
 			
@@ -129,7 +130,8 @@ Please make sure that you are using a secure password. if not, you should change
 
 
 		$message = sprintf( $message, $user_login, $site_name, $ip, $browser, $platform, $referer, $time, $client, get_option( 'url' ) );
-
-		wp_mail( $email, $subject, $message );
+		$message = apply_filters( 'wpuln_failed_login_user_email_message', $message, $user, $details );
+		$headers = apply_filters( 'wpuln_failed_login_user_email_headers', array() );
+		wp_mail( $email, $subject, $message, $headers );
 	}
 }
