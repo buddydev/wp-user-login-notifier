@@ -6,6 +6,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit( 0 );
 }
 
+/**
+ * Login Notifier.
+ */
 class BuddyDev_User_Login_Notifier {
 	/**
 	 * Array of registered notifiers.
@@ -42,19 +45,18 @@ class BuddyDev_User_Login_Notifier {
 		return self::$instance;
 	}
 
-
 	/**
 	 * Set a notifier.
 	 *
 	 * @param string                  $type unique identifier.
 	 * @param BuddyDev_Login_Notifier $notifier notifier object.
 	 *
-	 * @return $this|void
+	 * @return BuddyDev_User_Login_Notifier|null
 	 */
 	public function set_notifier( $type, $notifier ) {
 
 		if ( ! $type ) {
-			return;
+			return null;
 		}
 		$type = sanitize_key( $type );
 
@@ -77,7 +79,6 @@ class BuddyDev_User_Login_Notifier {
 		}
 
 		return null;
-
 	}
 
 	/**
@@ -107,15 +108,14 @@ class BuddyDev_User_Login_Notifier {
 
 		if ( isset( $this->notifiers['success'] ) && is_a( $this->notifiers['success'], 'BuddyDev_Login_Notifier' ) ) {
 
-			if ( buddydev_wpuln_get_setting( 'notify_admin_on_success' ) == 'yes' ) {
+			if ( buddydev_wpuln_get_setting( 'notify_admin_on_success' ) === 'yes' ) {
 				$this->notifiers['success']->notify_admin( $user );
 			}
 
-			if ( buddydev_wpuln_get_setting( 'notify_user_on_success' ) == 'yes' ) {
+			if ( buddydev_wpuln_get_setting( 'notify_user_on_success' ) === 'yes' ) {
 				$this->notifiers['success']->notify_user( $user );
 			}
 		}
-
 	}
 
 	/**
@@ -137,18 +137,16 @@ class BuddyDev_User_Login_Notifier {
 
 		if ( isset( $this->notifiers['fail'] ) && is_a( $this->notifiers['fail'], 'BuddyDev_Login_Notifier' ) ) {
 
-			if ( buddydev_wpuln_get_setting( 'notify_admin_on_fail' ) == 'yes' ) {
+			if ( buddydev_wpuln_get_setting( 'notify_admin_on_fail' ) === 'yes' ) {
 				$this->notifiers['fail']->notify_admin( $user );
 			}
 
-			if ( buddydev_wpuln_get_setting( 'notify_user_on_fail' ) == 'yes' ) {
+			if ( buddydev_wpuln_get_setting( 'notify_user_on_fail' ) === 'yes' ) {
 				$this->notifiers['fail']->notify_user( $user );
 			}
 		}
 
 	}
-
-
 }
 
 $notification_manager = BuddyDev_User_Login_Notifier::get_instance();

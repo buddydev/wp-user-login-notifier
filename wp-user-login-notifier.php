@@ -13,7 +13,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 // plugin dir path.
 define( 'BUDDYDEV_WPULN_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
 
-//I am sacrificing good looking class name in favor of non conflicting name, WP_User_Login_Notifier might have been 100 times better if not 1000 times.
+// I am sacrificing good looking class name in favor of non conflicting name,
+// WP_User_Login_Notifier might have been 100 times better if not 1000 times.
 /**
  * This is a helper class,
  * all it does is to load other files
@@ -48,10 +49,13 @@ class BuddyDev_User_Login_Notification_Helper {
 		add_action( 'init', array( $this, 'load' ), 0 );
 		add_action( 'init', array( $this, 'load_textdomain' ), 1 );
 
-		register_activation_hook( __FILE__, array(
-			'BuddyDev_User_Login_Notification_Helper',
-			'on_activation',
-		) );
+		register_activation_hook(
+			__FILE__,
+			array(
+				'BuddyDev_User_Login_Notification_Helper',
+				'on_activation',
+			)
+		);
 		register_uninstall_hook( __FILE__, array( 'BuddyDev_User_Login_Notification_Helper', 'on_uninstall' ) );
 	}
 
@@ -96,7 +100,6 @@ class BuddyDev_User_Login_Notification_Helper {
 		foreach ( $files as $file ) {
 			require_once $this->path . $file;
 		}
-
 	}
 
 	/**

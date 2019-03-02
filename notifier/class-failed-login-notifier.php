@@ -21,7 +21,13 @@ class BuddyDev_Failed_Login_Email_Notifier extends BuddyDev_Login_Notifier {
 
 		$details = $this->get_extra();
 
-		extract( $details );
+		$platform  = $details['platform'];
+		$browser   = $details['browser'];
+		$client    = $details['client'];
+		$ip        = $details['ip'];
+		$referer   = $details['referer'];
+		$time      = $details['time'];
+		$site_name = $details['site_name'];
 
 		$subject_append = '';
 
@@ -78,17 +84,24 @@ Recommendation: https://wordpress.org/plugins/tags/security
 		$user_login = $user->user_login;
 
 		$details = $this->get_extra();
-		extract( $details );
+
+		$platform  = $details['platform'];
+		$browser   = $details['browser'];
+		$client    = $details['client'];
+		$ip        = $details['ip'];
+		$referer   = $details['referer'];
+		$time      = $details['time'];
+		$site_name = $details['site_name'];
 
 		$subject_append = '';
 
 		if ( $platform && $browser ) {
-
-			$subject_append = __( ' from %s on %s', 'wp-user-login-notifier' );
+			/* translators: 1: Browser, 2: Os */
+			$subject_append = __( ' from %1$s on %2$s', 'wp-user-login-notifier' );
 
 			$subject_append = sprintf( $subject_append, $browser, $platform );
 		}
-
+		/* translators: %s: user name */
 		$subject = __( 'Login failed for your account {%s}', 'wp-user-login-notifier' );
 
 		$subject = sprintf( $subject, $user_login );
@@ -96,7 +109,7 @@ Recommendation: https://wordpress.org/plugins/tags/security
 		$subject = $subject . $subject_append;
 
 		$subject = $this->get_email_subject( array( 'text' => $subject ) );
-
+		/* translators: 1: user name, 2: site name, 3: IP, 4: Browser, 5: OS, 6: Referer, 7: Time, 8: User agent, 9: site url */
 		$message = __( 'An attempt to login from your account [%1$s] on site %2$s failed.
 			
 Access Details:-

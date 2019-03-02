@@ -4,7 +4,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * Successfull login email notifier.
+ * Successful login email notifier.
  */
 class BuddyDev_Successful_Login_Email_Notifier extends BuddyDev_Login_Notifier {
 
@@ -23,8 +23,15 @@ class BuddyDev_Successful_Login_Email_Notifier extends BuddyDev_Login_Notifier {
 			return;// don't send admin two messages.
 		}
 
-		$details = $this->get_extra();
-		extract( $details );
+		$details  = $this->get_extra();
+
+		$platform  = $details['platform'];
+		$browser   = $details['browser'];
+		$client    = $details['client'];
+		$ip        = $details['ip'];
+		$referer   = $details['referer'];
+		$time      = $details['time'];
+		$site_name = $details['site_name'];
 
 		$subject_append = '';
 
@@ -43,7 +50,7 @@ class BuddyDev_Successful_Login_Email_Notifier extends BuddyDev_Login_Notifier {
 
 		$subject = $this->get_email_subject( array( 'text' => $subject ) );
 
-		// should we rellay say congratulations, it's debatable and listen folks, I need help to decide here.
+		// should we really say congratulations, it's debatable. I need help to decide here.
 		$message = 'Hi,
 Congratulations, A user just logged into your site %1$s.
 
@@ -58,7 +65,6 @@ Time: %7$s
 User Agent: %8$s
 
 ';
-
 
 		$message = sprintf( $message, $site_name, $user_login, $ip, $browser, $platform, $referer, $time, $client );
 
@@ -79,17 +85,24 @@ User Agent: %8$s
 		$email      = $user->user_email;
 
 		$details = $this->get_extra();
-		extract( $details );
+
+		$platform  = $details['platform'];
+		$browser   = $details['browser'];
+		$client    = $details['client'];
+		$ip        = $details['ip'];
+		$referer   = $details['referer'];
+		$time      = $details['time'];
+		$site_name = $details['site_name'];
 
 		$subject_append = '';
 
 		if ( $platform && $browser ) {
-
-			$subject_append = __( ' from %s on %s', 'wp-user-login-notifier' );
+			/* translators: 1: browser, 2: platform */
+			$subject_append = __( ' from %1$s on %2$s', 'wp-user-login-notifier' );
 
 			$subject_append = sprintf( $subject_append, $browser, $platform );
 		}
-
+		/* translators: %s: user login*/
 		$subject = __( 'New sign-in from your account {%s}', 'wp-user-login-notifier' );
 
 		$subject = sprintf( $subject, $user_login );
@@ -115,7 +128,6 @@ Thank you.
 %2$s Team
 %10$s
 ';
-
 
 		$message = sprintf( $message, $user->display_name, $site_name, $user_login, $browser, $platform, $ip, $referer, $time, $client, get_option( 'url' ) );
 

@@ -75,12 +75,15 @@ abstract class BuddyDev_Login_Notifier {
 	 */
 	protected function get_email_subject( $args = array() ) {
 
-		$r = wp_parse_args( $args, array(
-			'before'  => '[',
-			'after'   => ']',
-			'default' => __( 'Your Blog', 'wp-user-login-notifier' ),
-			'text'    => '',
-		) );
+		$r = wp_parse_args(
+			$args,
+			array(
+				'before'  => '[',
+				'after'   => ']',
+				'default' => __( 'Your Blog', 'wp-user-login-notifier' ),
+				'text'    => '',
+			)
+		);
 
 		$subject = $r['before'] . wp_specialchars_decode( get_option( 'blogname', $r['default'] ), ENT_QUOTES ) . $r['after'] . ' ' . $r['text'];
 
@@ -93,8 +96,6 @@ abstract class BuddyDev_Login_Notifier {
 	 * @return string
 	 */
 	private function get_ip() {
-
-		$ip_address = '';
 
 		if ( isset( $_SERVER['HTTP_X_FORWARDED_FOR'] ) ) {
 			$ip_address = $_SERVER['HTTP_X_FORWARDED_FOR'];
