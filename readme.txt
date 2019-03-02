@@ -2,8 +2,8 @@
 Contributors: buddydev, sbrajesh
 Tags: login, user, failed login, admin notification, login notification, email login notification
 Requires at least: 4.0
-Tested up to: 4.9.1
-Stable tag: 1.0.3
+Tested up to: 5.1
+Stable tag: 1.0.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -57,6 +57,9 @@ Yes
 5. Configuration settings
 
 == Changelog ==
+= 1.0.4 =
+* PHP7+ compatibility.
+* Added filters to allow filtering all emails.
 
 = 1.0.3 =
 * Added partial translation support(for emails etc).

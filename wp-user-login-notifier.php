@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name: WP User Login Notifier
- * Version: 1.0.3
+ * Version: 1.0.4
  * Plugin URI: https://buddyDev.com/plugins/wp-user-login-notifier/
  * Author: BuddyDev
  * Author URI: https://buddydev.com
