@@ -24,6 +24,8 @@ class BuddyDev_Successful_Login_Email_Notifier extends BuddyDev_Login_Notifier {
 		if ( ! is_array( $email ) && $user->user_email === $email ) {
 			return;// don't send admin two messages.
 		}
+		// user link.
+		$link = function_exists( 'bp_core_get_user_domain' ) ? bp_core_get_user_domain( $user->ID ) : add_query_arg( 'user_id', $user->ID, self_admin_url( 'user-edit.php' ) );
 
 		$platform  = $details['platform'];
 		$browser   = $details['browser'];
@@ -57,6 +59,7 @@ Congratulations, A user just logged into your site %1$s.
 Details:-
 		
 User: %2$s
+Link: %9$s
 IP: %3$s
 Browser: %4$s
 Platform: %5$s
@@ -66,7 +69,7 @@ User Agent: %8$s
 
 ';
 
-		$message = sprintf( $message, $site_name, $user_login, $ip, $browser, $platform, $referer, $time, $client );
+		$message = sprintf( $message, $site_name, $user_login, $ip, $browser, $platform, $referer, $time, $client, $link );
 		$message = apply_filters( 'wpuln_successful_login_admin_email_message', $message, $user, $details );
 
 		$bcc_headers = apply_filters( 'wpuln_successful_login_admin_email_headers', buddydev_wpuln_get_bcc_header(), $user, $details );

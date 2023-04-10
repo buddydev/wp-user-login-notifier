@@ -16,6 +16,8 @@ class BuddyDev_Failed_Login_Email_Notifier extends BuddyDev_Login_Notifier {
 	public function notify_admin( $user ) {
 
 		$user_login = $user->user_login;
+		// user link.
+		$link = function_exists( 'bp_core_get_user_domain' ) ? bp_core_get_user_domain( $user->ID ) : add_query_arg( 'user_id', $user->ID, self_admin_url( 'user-edit.php' ) );
 
 		$details = $this->get_extra();
 
@@ -50,6 +52,7 @@ There was a failed login attempt on your site %1$s.
 Details:
 
 User: %2$s
+Link: %9$s
 IP: %3$s
 Browser: %4$s
 Platform: %5$s
@@ -64,7 +67,7 @@ You may want to install some WordPress security plugin to tighten the security.
 Recommendation: https://wordpress.org/plugins/tags/security
 ', 'wp-user-login-notifier' );
 
-		$message = sprintf( $message, $site_name, $user_login, $ip, $browser, $platform, $referer, $time, $client );
+		$message = sprintf( $message, $site_name, $user_login, $ip, $browser, $platform, $referer, $time, $client, $link );
 
 		$message     = apply_filters( 'wpuln_failed_login_admin_email_message', $message, $user, $details );
 		$bcc_headers = apply_filters( 'wpuln_failed_login_admin_email_headers', buddydev_wpuln_get_bcc_header(), $user, $details );
