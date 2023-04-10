@@ -1,7 +1,6 @@
 <?php
-if ( ! defined( 'ABSPATH' ) ) {
-	exit( 0 );
-}
+// Do not allow direct access over web.
+defined( 'ABSPATH' ) || exit;
 
 /**
  * Base notifier.
@@ -23,7 +22,6 @@ abstract class BuddyDev_Login_Notifier {
 	 * @param WP_User $user user object.
 	 */
 	abstract public function notify_user( $user );
-
 
 	/**
 	 * Get extra details about the visitors(user trying to login)
@@ -108,4 +106,3 @@ abstract class BuddyDev_Login_Notifier {
 		return $ip_address;
 	}
 }
-

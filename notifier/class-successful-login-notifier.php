@@ -1,7 +1,6 @@
 <?php
-if ( ! defined( 'ABSPATH' ) ) {
-	exit( 0 );
-}
+// Do not allow direct access over web.
+defined( 'ABSPATH' ) || exit;
 
 /**
  * Successful login email notifier.
@@ -38,9 +37,7 @@ class BuddyDev_Successful_Login_Email_Notifier extends BuddyDev_Login_Notifier {
 		$subject_append = '';
 
 		if ( $platform && $browser ) {
-
 			$subject_append = __( ' from %s on %s', 'wp-user-login-notifier' );
-
 			$subject_append = sprintf( $subject_append, $browser, $platform );
 		}
 
@@ -75,7 +72,6 @@ User Agent: %8$s
 		$bcc_headers = apply_filters( 'wpuln_successful_login_admin_email_headers', buddydev_wpuln_get_bcc_header(), $user, $details );
 
 		wp_mail( $email, $subject, $message, $bcc_headers );
-
 	}
 
 	/**
@@ -137,6 +133,5 @@ Thank you.
 
 		$headers = apply_filters( 'wpuln_successful_login_user_email_headers', array(), $user, $details );
 		wp_mail( $email, $subject, $message, $headers );
-
 	}
 }

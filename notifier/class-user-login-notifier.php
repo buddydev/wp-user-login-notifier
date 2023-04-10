@@ -2,9 +2,8 @@
 /**
  * Login Notifier.
  */
-if ( ! defined( 'ABSPATH' ) ) {
-	exit( 0 );
-}
+// Do not allow direct access over web.
+defined( 'ABSPATH' ) || exit;
 
 /**
  * Login Notifier.
@@ -145,7 +144,6 @@ class BuddyDev_User_Login_Notifier {
 				$this->notifiers['fail']->notify_user( $user );
 			}
 		}
-
 	}
 }
 

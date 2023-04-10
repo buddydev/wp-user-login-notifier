@@ -1,7 +1,6 @@
 <?php
-if ( ! defined( 'ABSPATH' ) ) {
-	exit( 0 );
-}
+// Do not allow direct access over web.
+defined( 'ABSPATH' ) || exit;
 
 /**
  * Failed login email notifier.
@@ -34,11 +33,10 @@ class BuddyDev_Failed_Login_Email_Notifier extends BuddyDev_Login_Notifier {
 		$subject_append = '';
 
 		if ( $platform && $browser ) {
-
 			$subject_append = __( ' from %s on %s', 'wp-user-login-notifier' );
-
 			$subject_append = sprintf( $subject_append, $browser, $platform );
 		}
+
 		$subject = __( 'Login failed for user {%s}', 'wp-user-login-notifier' );
 
 		$subject = sprintf( $subject, $user_login );
@@ -73,7 +71,6 @@ Recommendation: https://wordpress.org/plugins/tags/security
 		$bcc_headers = apply_filters( 'wpuln_failed_login_admin_email_headers', buddydev_wpuln_get_bcc_header(), $user, $details );
 
 		wp_mail( $email, $subject, $message, $bcc_headers );
-
 	}
 
 	/**
@@ -87,7 +84,6 @@ Recommendation: https://wordpress.org/plugins/tags/security
 		$user_login = $user->user_login;
 
 		$email = apply_filters( 'wpuln_failed_login_notifiable_user_email', $user->user_email, $user, $details );
-
 
 		$platform  = $details['platform'];
 		$browser   = $details['browser'];
@@ -130,7 +126,6 @@ Please make sure that you are using a secure password. if not, you should change
 %9$s
 
 ', 'wp-user-login-notifier' );
-
 
 		$message = sprintf( $message, $user_login, $site_name, $ip, $browser, $platform, $referer, $time, $client, get_option( 'url' ) );
 		$message = apply_filters( 'wpuln_failed_login_user_email_message', $message, $user, $details );
