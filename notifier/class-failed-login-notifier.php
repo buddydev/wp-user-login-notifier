@@ -65,7 +65,7 @@ You may want to install some WordPress security plugin to tighten the security.
 Recommendation: https://wordpress.org/plugins/tags/security
 ', 'wp-user-login-notifier' );
 
-		$message = sprintf( $message, $site_name, $user_login, $ip, $browser, $platform, $referer, $time, $client, $link );
+		$message = sprintf( $message, $site_name, $user_login, esc_html( $ip ), esc_html( $browser ), esc_html( $platform ), esc_html( $referer ), $time, esc_html( $client ), $link );
 
 		$message     = apply_filters( 'wpuln_failed_login_admin_email_message', $message, $user, $details );
 		$bcc_headers = apply_filters( 'wpuln_failed_login_admin_email_headers', buddydev_wpuln_get_bcc_header(), $user, $details );
@@ -127,7 +127,7 @@ Please make sure that you are using a secure password. if not, you should change
 
 ', 'wp-user-login-notifier' );
 
-		$message = sprintf( $message, $user_login, $site_name, $ip, $browser, $platform, $referer, $time, $client, get_option( 'url' ) );
+		$message = sprintf( $message, $user_login, $site_name, esc_html( $ip ), esc_html( $browser ), esc_html( $platform ), esc_html( $referer ), $time, esc_html( $client ), get_option( 'url' ) );
 		$message = apply_filters( 'wpuln_failed_login_user_email_message', $message, $user, $details );
 		$headers = apply_filters( 'wpuln_failed_login_user_email_headers', array(), $user, $details );
 		wp_mail( $email, $subject, $message, $headers );

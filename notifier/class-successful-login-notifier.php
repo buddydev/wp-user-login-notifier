@@ -66,7 +66,7 @@ User Agent: %8$s
 
 ';
 
-		$message = sprintf( $message, $site_name, $user_login, $ip, $browser, $platform, $referer, $time, $client, $link );
+		$message = sprintf( $message, $site_name, $user_login, esc_html( $ip ), esc_html( $browser ), esc_html( $platform ), esc_html( $referer ), $time, esc_html( $client ), esc_url( $link ) );
 		$message = apply_filters( 'wpuln_successful_login_admin_email_message', $message, $user, $details );
 
 		$bcc_headers = apply_filters( 'wpuln_successful_login_admin_email_headers', buddydev_wpuln_get_bcc_header(), $user, $details );
@@ -128,7 +128,7 @@ Thank you.
 %10$s
 ';
 
-		$message = sprintf( $message, $user->display_name, $site_name, $user_login, $browser, $platform, $ip, $referer, $time, $client, get_option( 'url' ) );
+		$message = sprintf( $message, $user->display_name, $site_name, $user_login, esc_html( $browser ), esc_html( $platform ), esc_html( $ip ), esc_html( $referer ), $time, esc_html( $client ), get_option( 'url' ) );
 		$message = apply_filters( 'wpuln_successful_login_user_email_message', $message, $user, $details );
 
 		$headers = apply_filters( 'wpuln_successful_login_user_email_headers', array(), $user, $details );
