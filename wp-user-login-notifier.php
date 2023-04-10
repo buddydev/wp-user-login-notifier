@@ -7,9 +7,9 @@
  * Author URI: https://buddydev.com
  * Description: Notify User/Admin when a users logs in or fails to log in
  */
-if ( ! defined( 'ABSPATH' ) ) {
-	exit( 0 );
-}
+// Do not allow direct access over web.
+defined( 'ABSPATH' ) || exit;
+
 // plugin dir path.
 define( 'BUDDYDEV_WPULN_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
 
