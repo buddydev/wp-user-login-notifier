@@ -6,6 +6,8 @@
  * Author: BuddyDev
  * Author URI: https://buddydev.com
  * Description: Notify User/Admin when a users logs in or fails to log in
+ * Text Domain: wp-user-login-notifier
+ * Domain Path: /languages/
  */
 // Do not allow direct access over web.
 defined( 'ABSPATH' ) || exit;

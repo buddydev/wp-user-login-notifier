@@ -57,6 +57,12 @@ Yes
 5. Configuration settings
 
 == Changelog ==
+
+= 1.0.6 =
+* Adds a Link to the user profile in the admin notification emails.
+* Tested with WordPress 6.2
+* Code cleanup to follow WordPress Coding Standards.
+
 = 1.0.5 =
 * Tested with WordPress 5.5
 
