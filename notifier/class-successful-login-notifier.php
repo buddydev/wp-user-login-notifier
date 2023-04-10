@@ -55,13 +55,13 @@ Congratulations, A user just logged into your site %1$s.
 
 Details:-
 		
-User: %2$s
-Link: %9$s
-IP: %3$s
-Browser: %4$s
-Platform: %5$s
-Referer: %6$s,
-Time: %7$s
+User:       %2$s
+Link:       %9$s
+IP:         %3$s
+Browser:    %4$s
+Platform:   %5$s
+Referer:    %6$s
+Time:       %7$s
 User Agent: %8$s
 
 ';
@@ -115,11 +115,11 @@ Your %2$s account %3$s was just used to sign in from %4$s on %5$s.
 
 Details:-
 
-IP: %6$s
-Browser: %4$s
-Platform: %5$s
-Referer %7$s,
-Time: %8$s
+IP:         %6$s
+Browser:    %4$s
+Platform:   %5$s
+Referer     %7$s
+Time:       %8$s
 User Agent: %9$s
 If it was you, just ignore this email. If it looks suspicious, Please change your password and notify the site admin.
 Thank you.

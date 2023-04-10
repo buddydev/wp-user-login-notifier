@@ -49,13 +49,13 @@ There was a failed login attempt on your site %1$s.
 
 Details:
 
-User: %2$s
-Link: %9$s
-IP: %3$s
-Browser: %4$s
-Platform: %5$s
-Referer: %6$s,
-Time: %7$s
+User:       %2$s
+Link:       %9$s
+IP:         %3$s
+Browser:    %4$s
+Platform:   %5$s
+Referer:    %6$s
+Time:       %7$s
 User Agent: %8$s
 
 No need to worry or panic if this is just the first email. 
@@ -114,11 +114,11 @@ Recommendation: https://wordpress.org/plugins/tags/security
 			
 Access Details:-
 
-IP: %3$s
-Browser: %4$s
-Platform: %5$s
-Referer %6$s
-Time: %7$s
+IP:         %3$s
+Browser:    %4$s
+Platform:   %5$s
+Referer     %6$s
+Time:       %7$s
 User Agent: %8$s
 Please make sure that you are using a secure password. if not, you should change it right now and inform the site administrator.
 
