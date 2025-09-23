@@ -1,17 +1,17 @@
-=== WordPress User Login Notifier ===
-Contributors: buddydev, sbrajesh
+=== User Login Notifier for WordPress ===
+Contributors: buddydev, sbrajesh, pressprogrammer
 Tags: login, user, failed login, admin notification, login notification, email login notification
 Requires at least: 5.0
-Tested up to: 6.2
-Stable tag: 1.0.6
+Tested up to: 6.8.2
+Stable tag: 1.0.7
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-WordPress User Login Notifier plugin notifies site admin and users of the successful and failed login attempts via email.
+User Login Notifier plugin notifies WordPress site admin and users of the successful and failed login attempts via email.
 
 == Description ==
 
-WordPress User Login notifier plugin notifies site admin and the users on a WordPress site when a user logs in succesfully or the login attempt is failed.
+User Login notifier for WordPress notifies site admin and the users on a WordPress site when a user logs in succesfully or the login attempt is failed.
 
 === Features ===
 
@@ -27,17 +27,17 @@ Please visit [BuddyDev](https://buddydev.com/wordpress/introducing-wordpress-use
 
 == Installation ==
 1. Login to dashboard & click Add New Plugin
-1. Search for 'WP User Login Notifier'
+1. Search for 'User Login Notifier for WordPress'
 1. Click Install & Then activate
-1. Visit Settings-> Wp User Login Notifier to update the settings
+1. Visit Settings-> User Login Notifier to update the settings
 
 Or you can install it manually as
 
 1. Download the zip file
 2. Extract the zip file 
 1. Upload `wp-user-login-notifier` folder to the `/wp-content/plugins/` directory
-1. Activate "WP User Login Notifier"  plugin through the 'Plugins' menu in WordPress
-1. Visit Settings-> WP User Login Notifier" to update settings
+1. Activate "User Login Notifier for WordPress"  plugin through the 'Plugins' menu in WordPress
+1. Visit Settings-> User Login Notifier" to update settings
  
 == Frequently Asked Questions ==
 
@@ -57,6 +57,9 @@ Yes
 5. Configuration settings
 
 == Changelog ==
+
+= 1.0.7 =
+* Updated name to comply with WordPress foundation trademark policy.
 
 = 1.0.6 =
 * Adds a Link to the user profile in the admin notification emails.
