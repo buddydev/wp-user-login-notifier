@@ -47,7 +47,7 @@ class WP_User_Login_Notifier_Admin {
 		// set the settings.
 		$page = $this->page;
 		// add_section.
-		$page->add_section( 'basic_section', __( 'WP User Login Notifier', 'wp-user-login-notifier' ) );
+		$page->add_section( 'basic_section', __( 'User Login Notifier', 'wp-user-login-notifier' ) );
 
 		// add fields.
 		$page->get_section( 'basic_section' )->add_fields(
@@ -114,8 +114,8 @@ class WP_User_Login_Notifier_Admin {
 	 */
 	public function admin_menu() {
 		add_options_page(
-			__( 'WP User Login Notifer', 'wp-user-login-notifier' ),
-			__( 'WP User Login Notifier', 'wp-user-login-notifier' ),
+			__( 'User Login Notifier for WordPress', 'wp-user-login-notifier' ),
+			__( 'User Login Notifier', 'wp-user-login-notifier' ),
 			'manage_options',
 			$this->slug,
 			array( $this->page, 'render' )
